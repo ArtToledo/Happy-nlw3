@@ -1,0 +1,61 @@
+<div id="page-orphanage">
+  <div ng-include="'view/sideBar.html'"></div>
+
+  <main>
+    <div class="orphanage-details">
+      <img ng-src="{{ orphanage.images[activeImageIndex].url }}" alt={{ orphanage.name }} />
+
+      <div class="images">
+        <button 
+          type="button" 
+          ng-repeat="image in orphanage.images" 
+          class="active" 
+          ng-click="setActiveImageIndex($index)"
+          ng-class="activeImageIndex === $index ? 'active' : ''"
+        >
+          <img src="{{ image.url }}"/>
+        </button>
+      </div>
+
+      <div class="orphanage-details-content">
+        <h1>{{ orphanage.name }}</h1>
+        <p>{{ orphanage.about }}</p>
+
+        <div class="map-container">
+          <leaflet id="map-center" markers="marker" center="center" style="width: 100%; height: 280px;"></leaflet>
+
+          <footer>
+            <a target="_blank" rel="noopener noreferrer"
+              ng-href="https://www.google.com/maps/dir/?api=1&destination={{orphanage.latitude}},{{orphanage.longitude}}">Ver
+              rotas no Google Maps</a>
+          </footer>
+        </div>
+
+        <hr />
+
+        <h2>Instruções para visita</h2>
+        <p>{{ orphanage.instructions }}</p>
+
+        <div class="open-details">
+          <div class="hour">
+            <ng-md-icon icon="query_builder" style="fill: #15B6D6" size="32"></ng-md-icon>
+            Segunda à Sexta <br />
+            {{ orphanage.opening_hours }}
+          </div>
+
+
+          <div class="open-on-weekends" ng-if="orphanage.open_on_weekends === true">
+            <ng-md-icon icon="info_outline" style="fill: #39CC83" size="32"></ng-md-icon>
+            Atendemos <br />
+            fim de semana
+          </div>
+          <div class="open-on-weekends dont-open" ng-if="orphanage.open_on_weekends === false">
+            <ng-md-icon icon="info_outline" style="fill: #FF669D" size="32"></ng-md-icon>
+            Não Atendemos <br />
+            fim de semana
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

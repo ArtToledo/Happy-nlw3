@@ -1,0 +1,23 @@
+<div id="page-map">
+  <aside>
+    <header>
+      <img src="../assets/map-marker.svg" alt="Happy" />
+
+      <h2>Escolha um orfanato no mapa</h2>
+      <p>Muitas crianças estão esperando a sua visita :)</p>
+    </header>
+
+    <footer>
+      <strong>Contagem</strong>
+      <span>Minas Gerais</span>
+    </footer>
+  </aside>
+
+  <div style="width: 100%; height: 100%;">
+    <leaflet id="map-center" markers="markers" center="center"></leaflet>
+  </div>
+
+  <a href="#/orphanages/create" class="create-orphanage">
+    <ng-md-icon icon="add" style="fill: #fff" size="32"></ng-md-icon>
+  </a>
+</div>

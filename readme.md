@@ -38,6 +38,7 @@ Este projeto foi desenvolvido com as seguintes tecnologias:
 - [Node.js][nodejs]
 - [TypeScript][typescript]
 - [React][reactjs]
+- [AngularJS][angularjs]
 
 ## 🔖 Layout
 
@@ -104,3 +105,4 @@ Made with ♥ by Daniel Obara :wave: [Get in touch!](https://br.linkedin.com/in/
 [typescript]: https://www.typescriptlang.org/
 [reactjs]: https://reactjs.org
 [yarn]: https://yarnpkg.com/
+[angularjs]: https://angularjs.org/

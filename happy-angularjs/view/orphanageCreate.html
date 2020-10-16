@@ -1,0 +1,113 @@
+<div id="page-create-orphanage" ng-controller="orphanageCreateController">
+  <div ng-include="'view/sideBar.html'"></div>    
+
+  <main>
+    <form name="orphanageForm" class="create-orphanage-form">
+      <fieldset>
+        <legend>Dados</legend>
+
+        <leaflet id="map-center" markers="marker" center="center" style="width: 100%; height: 280px;"></leaflet>
+
+        <div class="input-block">
+          <label htmlFor="name">Nome</label>
+          <input 
+            id="name"
+            type="text"
+            ng-model="orphanage.name"
+            name="name"
+            ng-required="true"
+          />
+        </div>
+
+        <div class="input-block">
+          <label htmlFor="about">Sobre <span>Máximo de 300 caracteres</span></label>
+          <textarea 
+            id="about"
+            type="text"
+            maxlength="300"
+            ng-model="orphanage.about"
+            name="about"
+            ng-required="true"
+          >
+          </textarea>
+        </div>
+
+        <div class="input-block">
+          <label htmlFor="images">Fotos</label>
+
+          <div class="images-container">
+            <div ng-if="previewImages.length != 0" ng-repeat="image in previewImages">
+              <img src="{{ image }}" alt="Imagem do local"/>
+            </div>
+            
+            <label onclick="document.getElementById('image[]').click()" class="new-image">
+              <ng-md-icon icon="add" style="fill: #15b6d6" size="24"></ng-md-icon>
+            </label>
+          </div>
+
+          <input 
+            id="image[]"
+            ng-model="imagens" 
+            file-model="myfile" 
+            type="file" 
+            multiple
+            onchange="angular.element(this).scope().handleSelectImages(this)"
+          />
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Visitação</legend>
+
+        <div class="input-block">
+          <label htmlFor="instructions">Instruções</label>
+          <textarea 
+            id="instructions" 
+            type="text"
+            ng-model="orphanage.instructions"
+            name="instructions"
+            ng-required="true"
+          >
+          </textarea>
+        </div>
+
+        <div class="input-block">
+          <label htmlFor="opening_hours">Horário de funcionamento</label>
+          <input 
+            id="opening_hours"
+            type="text"
+            ng-model="orphanage.opening_hours"
+            name="opening_hours"
+            ng-required="true"
+          />
+        </div>
+
+        <div class="input-block">
+          <label htmlFor="open_on_weekends">Atende fim de semana</label>
+
+          <div class="button-select">
+            <button 
+              type="button" 
+              ng-class="orphanage.open_on_weekends === true || orphanage.open_on_weekends === undefined ? 'active' : ''"
+              ng-click="orphanage.open_on_weekends = true"
+              ng-init="orphanage.open_on_weekends = true"
+            >
+              Sim
+            </button>
+            <button 
+              type="button"
+              ng-class="orphanage.open_on_weekends === false ? 'active' : ''"
+              ng-click="orphanage.open_on_weekends = false"
+            >
+              Não
+            </button>
+          </div>
+        </div>
+      </fieldset>
+
+      <button class="confirm-button" ng-disabled="orphanageForm.$invalid" ng-click="createOrphanage(orphanage)">
+        Confirmar
+      </button>
+    </form>
+  </main>
+</div>
