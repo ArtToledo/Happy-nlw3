@@ -99,7 +99,7 @@ Após a solicitação de merge for recebido, você pode deletar sua branch.
 
 This project is under the MIT license. See the [LICENSE](https://github.com/ArtToledo/Happy-nlw3) for details.
 
-Made with ♥ by Daniel Obara :wave: [Get in touch!](https://br.linkedin.com/in/arthur-toledo)
+Made with ♥ by Arthur Toledo :wave: [Get in touch!](https://br.linkedin.com/in/arthur-toledo)
 
 [nodejs]: https://nodejs.org/
 [typescript]: https://www.typescriptlang.org/
